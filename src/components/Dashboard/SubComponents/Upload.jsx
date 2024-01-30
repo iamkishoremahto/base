@@ -5,9 +5,20 @@ import React, { useState } from 'react';
 
 export const Upload = () => {
 
+    const inputOnChange = (e) =>{
+        let files = e.target.files
+        setDropMessage(files[0].name)
+        setBrowseMessage('Remove')
+        setUploadFileClass('fileUploaded')
+        setBrowseHandler(false);
+    }
+
+
     const handleBrowseClick = () =>{
         let inputBtn = document.getElementById('excelFile');
         inputBtn.click();
+        inputBtn.addEventListener('change',inputOnChange)
+       
     }
     
 
@@ -37,20 +48,28 @@ export const Upload = () => {
 
     };
 
+
     const handleFiles = (files) => {
         setDropMessage(files[0].name)
         setBrowseMessage('Remove')
         setUploadFileClass('fileUploaded')
         setBrowseHandler(false);
-        console.log('Dropped files:', files);
+        let fileInput = document.getElementById('excelFile');
+        fileInput.files = files;
+        const e = new Event('change');
+        fileInput.dispatchEvent(e);
+       
         
       };
+      
 
       const handleRemoveClick = () =>{
         setDropMessage('Drop your excel sheet here or')
         setBrowseMessage('browse');
         setUploadFileClass('');
         setBrowseHandler(true);
+        let inputBtn = document.getElementById('excelFile');
+        inputBtn.value = ''
       }
 
     return (

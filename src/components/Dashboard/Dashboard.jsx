@@ -2,6 +2,7 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { ProfileNav } from './SubComponents/ProfileNav'
 import { Upload } from './SubComponents/Upload';
+import { UploadsTable } from './SubComponents/UploadsTable';
 import './Dasboard.scss';
 export const Dashboard = () => {
     return (
@@ -78,6 +79,10 @@ export const Dashboard = () => {
                         <div className="mainUploadWrapper">
                         <Upload />
                         </div>
+                        <div className="mainTableWrapper">
+                        <UploadsTable />
+                        </div>
+                       
                         
                     </div>
                 </Col>
