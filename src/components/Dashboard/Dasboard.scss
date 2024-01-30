@@ -1,0 +1,138 @@
+@import '../Common_Sass/Common_Sass.scss';
+
+.mainDashboardWrapper {
+    min-height: 1024px;
+    width: 100vw;
+    background-color: $dashboardColor;
+    display: flex;
+    flex-direction: row;
+
+    .dashbordWrapper {
+        display: flex;
+        flex-direction: row;
+        height: 1024px;
+        
+        border: 2px solid rgb(0, 60, 255);
+
+    }
+}
+
+.navPannelWrapper {
+
+    min-width: 218px !important;
+    height: 100%;
+
+    background-color: $White;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // padding-top: 51px;
+
+    .logoWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        min-height: 143px;
+
+        h1 {
+            margin-bottom: 0;
+            font-size: 24px;
+            font-weight: 600;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+    }
+
+
+}
+
+.navListWrapper {
+    min-width: 100%;
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding-left: 0;
+        min-width: 100%;
+
+        .navLinkWrapper {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            // justify-content: center;
+            padding-left: 30px;
+            width: 100%;
+            min-height: 48px;
+
+
+
+            p {
+                margin-bottom: 0;
+                color: $navFontColor;
+                font-family: 'Nunito Sans', sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+
+            }
+
+            .navIcon {
+                fill: $navFontColor;
+            }
+
+            
+
+            &:hover {
+                background: linear-gradient(90deg, #aca9ff20 0%, rgba(172, 169, 255, 0.00) 20.25%);
+                border-radius: 5px;
+               
+                .navIcon{
+                    fill: $Blue;
+                }
+                p{
+                    color: $Blue;
+                }
+
+            }
+
+           
+        }
+    }
+}
+
+.active{
+    background: linear-gradient(90deg, #aca9ff20 0%, rgba(172, 169, 255, 0.00) 20.25%) !important;
+    border-radius: 5px !important;
+   
+    .navIcon{
+        fill: $Blue !important;
+    }
+    p{
+        color: $Blue !important;
+    }
+
+}
+.dashbordPannelWrapper {
+    min-width: calc(100% - 218px);
+   
+    // display: flex;
+    padding: 20px;
+ 
+
+    .mainUploadWrapper{
+        // min-height: 550px;
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+    }
+}
+
+
+@import './SubComponents/ProfileNav';
+@import './SubComponents/Upload';

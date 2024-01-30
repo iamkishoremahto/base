@@ -1,0 +1,128 @@
+@media screen and (max-width: 1440px) and (min-width: 1280px){
+
+    .loginInfoWrapper{
+        background-size: 120%;
+        background-position: 100%;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .mainLoginPageWrapper,
+    .LoginPageWrapper {
+        min-height: 800px;
+
+        
+    }
+    .LoginPageWrapper{
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+
+    .loginInfoWrapper {
+
+        min-height: 80px;
+        flex-direction: row;
+        background-size: 200%;
+       
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0;
+       
+     
+
+        .logoWrapper {
+            .logo {
+                width: 26px !important;
+                height: 26px !important;
+            }
+        }
+
+        .brandNameWrapper {
+            margin-left: 10px;
+            justify-content: flex-start;
+            align-items: center;
+
+            h1 {
+                font-size: 20px;
+                margin-bottom: 0;
+            }
+        }
+
+        .socialMediaIconsWrapper {
+            position: absolute;
+            bottom: -820px;
+            gap: 0px;
+            width: 100%;
+
+            .socialIcon{
+                height: 30px;
+                color: $Gray;
+            }
+        }
+    }
+
+    .registerWrapper{
+        margin-bottom: 110px;
+        margin-top: 54px;
+        width: 100%;
+        p{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 20px;
+        }
+        
+    }
+
+    .loginFormWrapper{
+        min-height: calc(800px - 80px);
+        padding: 16px;
+        gap: 27px;
+        
+      
+
+        .signInHeading{
+            margin-top: 29px;
+        
+            width: 328px;
+            h1{
+                font-size: 24px;
+            }
+            p{
+                font-size : 12px;
+            }
+        }
+    }
+
+    .socialAuth{
+        width: 328px;
+
+        .googleAuth,.appleAuth{
+            width: 153px;
+
+            p{
+                font-size: 10px;
+            }
+        }
+    }
+
+    .formWrapper{
+        width: 328px;
+        height: 348px;
+        padding:25px;
+
+        form{
+            .inputWrapper{
+
+                input{
+                    width: 276px;
+                    height: 44px;
+                }
+            }
+            
+        }
+    }
+}

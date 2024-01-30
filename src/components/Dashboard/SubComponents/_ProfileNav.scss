@@ -1,0 +1,28 @@
+.profileNavWrapper {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .navHighlite {
+        p {
+            margin-bottom: 0;
+            color: #000;
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-family: 'Figtree', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 32px;
+        }
+    }
+    .profileInfoWrapper{
+        display: flex;
+        gap: 27px;
+        align-items: center;
+
+        img{
+            border-radius: 50%;
+        }
+    }
+}

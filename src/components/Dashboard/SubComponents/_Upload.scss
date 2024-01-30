@@ -1,0 +1,74 @@
+.uploadWrapper{
+    min-height: 367px;
+    min-width: 596px;
+    background-color: $White;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 16px;
+
+    .uploadArea{
+        min-height: 258px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 16px;
+        border: 2px dotted $browseFileColor;
+        border-radius: 8px;
+        width: 100%;
+        p{
+            color: $browseFileColor;
+            font-family: 'Figtree', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            span{
+                &:last-child{
+                    color: $Blue;
+                    cursor: pointer;
+                }
+               
+            }
+        }
+        .fileUploaded{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            span{
+                &:last-child{
+                    color: $Red;
+                }
+            }
+        }
+    }
+
+
+    .uploadBtnWrapper{
+        min-height: 56px;
+        min-width: 564px;
+        button{
+            width: 100%;
+            height: 100%;
+            background-color: $Blue;
+            padding: 16px 8px;
+            border: none;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:8px ;
+            color: $White;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: 'Figtree', sans-serif;
+        }
+    }
+}
+
+#excelFile{
+    visibility: hidden;
+}
