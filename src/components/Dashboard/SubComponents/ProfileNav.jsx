@@ -1,10 +1,18 @@
 
+
+import { HiOutlineMenu } from "react-icons/hi";
+
 export const ProfileNav = () => {
     return (
         <>
         <div className="profileNavWrapper">
             <div className="navHighlite">
-                <p>Upload CSV</p>
+                <p className = "mobilePara">Upload CSV</p>
+                {/* <div className="mobileNavMenu">
+                <HiOutlineMenu />
+                <img src={process.env.PUBLIC_URL + 'images/logo2.svg'} alt="logo" className="img-fluid mobileLogo" />
+                <p >Base</p>
+                </div> */}
             </div>
             <div className="profileInfoWrapper">
             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="23" viewBox="0 0 19 23" fill="none">

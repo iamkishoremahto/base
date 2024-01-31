@@ -4,7 +4,10 @@ import { ProfileNav } from './SubComponents/ProfileNav'
 import { Upload } from './SubComponents/Upload';
 import { UploadsTable } from './SubComponents/UploadsTable';
 import './Dasboard.scss';
-export const Dashboard = () => {
+import { useState } from 'react';
+export const Dashboard = (props) => {
+        const [excelData, setExcelData] = useState([])
+// console.log(excelData)
     return (
         <>
             <Container fluid className="mainDashboardWrapper">
@@ -77,10 +80,14 @@ export const Dashboard = () => {
                     <div className="dashbordPannelWrapper">
                         <ProfileNav />
                         <div className="mainUploadWrapper">
-                        <Upload />
+                        <Upload setExcelData={setExcelData} />
+                    
                         </div>
                         <div className="mainTableWrapper">
-                        <UploadsTable />
+                         
+                       <UploadsTable  data = {excelData}/>
+                       
+                       
                         </div>
                        
                         

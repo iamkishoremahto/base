@@ -1,9 +1,29 @@
 
 import { MdOutlineFileUpload } from "react-icons/md";
 import React, { useState } from 'react';
+import { Dashboard  } from '../Dashboard';
+import * as XLSX from 'xlsx';
 
+export const Upload = ({setExcelData}) => {
+    // const [excelData, setExcelData] = useState([])
+    
 
-export const Upload = () => {
+    const handleExcelDataObject = (file) =>{
+        const reader = new FileReader();
+        reader.readAsBinaryString(file);
+        reader.onload = (e) =>{
+            const data = e.target.result;
+            const workbook = XLSX.read(data,{type: 'binary'});
+            const sheetname = workbook.SheetNames[0];
+            const sheet = workbook.Sheets[sheetname];
+            const parseData = XLSX.utils.sheet_to_json(sheet);
+            // console.log(parseData);
+            setExcelData(parseData);
+        
+        };
+        
+    
+    }
 
     const inputOnChange = (e) =>{
         let files = e.target.files
@@ -11,6 +31,8 @@ export const Upload = () => {
         setBrowseMessage('Remove')
         setUploadFileClass('fileUploaded')
         setBrowseHandler(false);
+        handleExcelDataObject(files[0]);
+        
     }
 
 
@@ -58,6 +80,8 @@ export const Upload = () => {
         fileInput.files = files;
         const e = new Event('change');
         fileInput.dispatchEvent(e);
+        handleExcelDataObject(files[0]);
+        
        
         
       };
@@ -68,6 +92,7 @@ export const Upload = () => {
         setBrowseMessage('browse');
         setUploadFileClass('');
         setBrowseHandler(true);
+        setExcelData([]);
         let inputBtn = document.getElementById('excelFile');
         inputBtn.value = ''
       }
@@ -94,4 +119,7 @@ export const Upload = () => {
         </>
     )
 
-}
+};
+
+
+

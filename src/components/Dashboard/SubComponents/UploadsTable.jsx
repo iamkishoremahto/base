@@ -1,57 +1,44 @@
 
+import { IoIosArrowDown } from "react-icons/io";
+import React, { useState } from 'react';
+import { TableRow } from './TableRow';
 
-export const UploadsTable = () =>{
+export const UploadsTable = (props) =>{
+  
     return(
         <>
         <div className="uploadsTableWrapper">
             <p>Uploads</p>
             <div className="tableWrapper">
                 <table className="dataTable">
+                    <thead> 
                     <tr>
-                        <th>Sl No.</th>
-                        <th>Links</th>
-                        <th>Prefix</th>
-                        <th>Add Tags</th>
-                        <th>Selected Tags</th>
+                        <th className="tableHead">Sl No.</th>
+                        <th className="tableHead">Links</th>
+                        <th className="tableHead">Prefix</th>
+                        <th className="tableHead">Add Tags</th>
+                        <th className="tableHead">Selected Tags</th>
                     </tr>
-                    <tr className="tableData">
-                        <td>
-                            01
-                        </td>
-                        <td>
-                            www.google.com
-                        </td>
 
-                        <td>
-                            prefixSample
-                        </td>
+                    </thead>
+                   <tbody>
+                    {/* <TableRow data = {props.data}/> */}
+                    {/* <TableRow />
+                    <TableRow />
+                    <TableRow />
+                    <TableRow />
+                    <TableRow />
+                    <TableRow />
+                    <TableRow /> */}
+                    {props.data.map((rowData,index) => (
+                        <TableRow key = {index} data={rowData} />
+                    ))}
+                  
+                    
+                    
 
-                        <td>
-                            <select>
-                                <option value="">Select Tags</option>
-                                <option value="Tag1">Tag1</option>
-                                <option value="Tag2">Tag2</option>
-                                <option value="Tag3">Tag3</option>
-                            </select>
-                        </td>
-                        <td>
-                            <div className="selectedTags">
-                                <p>TAG 1 <span>X</span></p>
-                                <p>TAG 2 <span>X</span></p>
-                                <p>TAG 1 <span>X</span></p>
-                                <p>TAG 2 <span>X</span></p>
-                                <p>TAG 1 <span>X</span></p>
-                                <p>TAG 2 <span>X</span></p>
-                                <p>TAG 1 <span>X</span></p>
-                                <p>TAG 2 <span>X</span></p>
-                                <p>TAG 1 <span>X</span></p>
-                                <p>TAG 2 <span>X</span></p>
-                                <p>TAG 1 <span>X</span></p>
-                                <p>TAG 2 <span>X</span></p>
-                                
-                            </div>
-                        </td>
-                    </tr>
+                   </tbody>
+                   
                 </table>
             </div>
         </div>

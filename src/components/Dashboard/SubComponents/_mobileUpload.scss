@@ -1,0 +1,15 @@
+.uploadWrapper {
+    min-height: 352px;
+    min-width: 100vw;
+
+    gap: 16px;
+
+    .uploadArea{
+        max-width: 296px; 
+    }
+
+    .uploadBtnWrapper {
+        min-height: 46px;
+        min-width: 296px;
+    }
+}
