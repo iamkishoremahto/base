@@ -25,3 +25,11 @@
         }
     }
 }
+
+// profileNavWrapper
+
+@media screen and (max-width: 1024px){
+    .profileNavWrapper{
+        display: none;  
+    }
+}

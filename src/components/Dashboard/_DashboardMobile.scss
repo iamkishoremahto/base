@@ -3,11 +3,18 @@
     .mainDashboardWrapper{
         padding-left: 0 !important;
         padding-right: 0 !important;
+        width: 100vw;
+        border: 2px solid green;
+    }
+    .dashbordWrapper{
+       
     }
     .mainDashboardWrapper,
     .dashbordWrapper {
         // min-width: 100% !important;
-        width: 360px;
+        min-width: 100vw !important;
+        
+        // width: 360px;
         // overflow: hidden;
     }
 
@@ -15,12 +22,13 @@
         display: none;
     }
 
+  
     .dashbordPannelWrapper {
         max-width: 100vw;
-        
+        border: 2px solid blue;
         min-width: 360px;
         padding: 10px;
-        padding-top: 40px;
+        // padding-top: 40px;
 
         .mainUploadWrapper{
             // max-width: 340px !important;
@@ -36,7 +44,7 @@
         .mainTableWrapper{
             min-width: 100%;
             max-width: 100%;
-          
+          border: 2px solid red;
             overflow: hidden;
         }
 
@@ -66,7 +74,7 @@
                 font-size: 14px;
                 // display: none;
             }
-
+            
             .mobileNavMenu {
                 display: flex;
                 align-items: center;
@@ -87,4 +95,6 @@
             }
         }
     }
+
+    @import './SubComponents/MobileNavHeader';
 }

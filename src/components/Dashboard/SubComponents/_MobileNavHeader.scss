@@ -1,0 +1,53 @@
+.mainMobileProfileNav {
+    display: flex;
+
+
+    align-items: center;
+    justify-content: space-between;
+    background-color: $White;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .mobileProfileNav {
+        display: flex;
+     
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px;
+
+        .menuButtonWrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .handburger{
+                // height: 50px;
+                font-size: 1.4rem;
+            }
+
+            .mobileLogo {
+                height: 26px
+            }
+
+            p {
+                margin-bottom: 0;
+                color: var(--Text, #030229);
+                font-family: 'Nunito Sans', sans-serif;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+            }
+        }
+
+        .mobileUserProfileWrapper{
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            img{
+                border-radius: 50%;
+            }
+        }
+    }
+}
