@@ -3,8 +3,33 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { IoLogoDiscord } from "react-icons/io5";
+import {useNavigate} from 'react-router-dom';
 
 export const Login = () => {
+    const Navigate = useNavigate();
+    localStorage.setItem('loginStatus',false)
+
+     const isValidEmail = async(email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      };
+    const loginHandler = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        
+        const formDataObject = {};
+        formData.forEach((value,key) => {
+            formDataObject[key] = value;
+        })
+        if(formDataObject.email !== undefined && formDataObject.password !== undefined && formDataObject.email !== null && formDataObject.password !== null && formDataObject.email !== '' && formDataObject.password !== ''){
+            let emailStatus = await isValidEmail(formDataObject.email)
+            if(emailStatus){
+                localStorage.setItem('loginStatus',true)
+                Navigate('/dashboard')
+                
+            }
+        }
+    }
     return (
         <>
             <Container fluid className='mainLoginPageWrapper'>
@@ -41,21 +66,21 @@ export const Login = () => {
                             </div>
                             </div>
                             <div className="formWrapper">
-                                <form >
+                                <form onSubmit =  {loginHandler}>
                                     <div className="inputWrapper">
                                         <label htmlFor="email">Email address</label>
-                                        <input type="email" name="password" id='email' />
+                                        <input type="email" name="email" id='email' required />
                                     </div>
 
                                     <div className="inputWrapper">
                                         <label htmlFor="password">Password</label>
-                                        <input type="password" name="password" id="password" />
+                                        <input type="password" name="password" id="password"  required/>
                                     </div>
                                     <div className="forgotPasswordWrapper">
                                         <p>Forgot password?</p>
                                     </div>
                                     <div className="submitButtonWrapper">
-                                        <button type="submit">Sign In</button>
+                                        <button  type="submit">Sign In</button>
                                     </div>
 
 

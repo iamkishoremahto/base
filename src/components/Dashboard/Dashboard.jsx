@@ -1,23 +1,38 @@
 
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Col } from 'react-bootstrap';
 import { ProfileNav } from './SubComponents/ProfileNav'
 import { Upload } from './SubComponents/Upload';
 import { UploadsTable } from './SubComponents/UploadsTable';
+import { IoCloseOutline } from "react-icons/io5";
 import './Dasboard.scss';
 
 import { MobileNavHeader } from './SubComponents/MobileNavHeader';
 import { useState } from 'react';
 export const Dashboard = (props) => {
     const [excelData, setExcelData] = useState([])
+    const [openMobileMenu, setOpenMobileMenu] = useState(false)
+    const [isCloseBtnCLicked, setCloseBtnCLicked] = useState(false);
+     const [showTable, setShowTable] = useState(false);
+
+    const closeBtnHandler = () =>{
+        setCloseBtnCLicked(!isCloseBtnCLicked);
+        setOpenMobileMenu(!openMobileMenu)
+    }
     // console.log(excelData)
     return (
         <>
             <Container fluid className="mainDashboardWrapper">
                 <Col className='dashbordWrapper'>
-                    <div className="navPannelWrapper">
+                    <div className={openMobileMenu?"animate__animated animate__fadeInLeft navPannelWrapper navPannelWrapperShow":"navPannelWrapper"}>
                         <div className="logoWrapper">
+                            <div className="logoSection">
                             <img src={process.env.PUBLIC_URL + 'images/logo2.svg'} alt="logo2" className="img-fluid logo2" />
                             <h1>Base</h1>
+                            </div>
+                            <div className={openMobileMenu?"closeNav showCloseNav":"closeNav"}>
+                                <IoCloseOutline onClick = {closeBtnHandler} />
+                            </div>
+                            
                         </div>
 
                         <div className="navListWrapper">
@@ -80,15 +95,15 @@ export const Dashboard = (props) => {
                     </div>
 
                     <div className="dashbordPannelWrapper">
-                        <MobileNavHeader />
+                        <MobileNavHeader setOpenMobileMenu =  {setOpenMobileMenu} />
                         <ProfileNav />
                         <div className="mainUploadWrapper">
-                            <Upload setExcelData={setExcelData} />
+                            <Upload setExcelData={setExcelData} setShowTable = {setShowTable} />
 
                         </div>
                         <div className="mainTableWrapper">
 
-                            <UploadsTable data={excelData} />
+                            <UploadsTable data={excelData} showTable={showTable} />
 
 
                         </div>

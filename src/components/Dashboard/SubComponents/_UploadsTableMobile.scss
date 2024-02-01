@@ -1,4 +1,6 @@
-.uploadsTableWrapper{
-    min-width: 100%;
-    border: 2px solid black;
+
+@media screen and (max-width: 1024px){
+    .uploadsTableWrapper{
+        min-width: 100%;
+    }
 }

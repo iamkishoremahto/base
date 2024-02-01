@@ -1,12 +1,20 @@
 import { HiOutlineMenu } from "react-icons/hi";
+import React, { useState } from "react";
 
-export const MobileNavHeader = () =>{
+export const MobileNavHeader = ({setOpenMobileMenu}) =>{
+    const[isMobileNavActive, setMobileNavActive] = useState(false);
+
+    const handburgerClickHandler = () =>{
+        setMobileNavActive(!isMobileNavActive);
+        setOpenMobileMenu(isMobileNavActive);
+        console.log('isClicked');
+    }
     return (
         <>
         <div className="mainMobileProfileNav">
                             <div className="mobileProfileNav">
                                 <div className="menuButtonWrapper">
-                                    <HiOutlineMenu className = "handburger" />
+                                    <HiOutlineMenu className = "handburger" onClick = {handburgerClickHandler} />
                                     <img src={process.env.PUBLIC_URL + 'images/logo2.svg'} alt="logo" className="img-fluid mobileLogo" />
                                     <p >Base</p>
                                 </div>

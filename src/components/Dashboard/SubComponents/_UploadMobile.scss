@@ -1,7 +1,10 @@
-.uploadWrapper{
+
+@media screen and (max-width: 1024px) {
+    .uploadWrapper{
     
-    min-width: 328px;
-    .uploadBtnWrapper{
-        min-width: 300px;
+        min-width: 328px;
+        .uploadBtnWrapper{
+            min-width: 300px;
+        }
     }
 }

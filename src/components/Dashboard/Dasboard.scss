@@ -35,7 +35,19 @@
         justify-content: center;
         gap: 15px;
         min-height: 143px;
-
+        .logoSection{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .closeNav{
+            font-size: 1.8rem;
+            display: none;
+        }
+        .showCloseNav{
+            display: block;
+        }
         h1 {
             margin-bottom: 0;
             font-size: 24px;
@@ -46,6 +58,8 @@
 
 
 }
+
+
 
 .navListWrapper {
     min-width: 100%;

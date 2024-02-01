@@ -1,13 +1,13 @@
 
-import { IoIosArrowDown } from "react-icons/io";
-import React, { useState } from 'react';
+
 import { TableRow } from './TableRow';
 
 export const UploadsTable = (props) =>{
+
   
     return(
         <>
-        <div className="uploadsTableWrapper">
+        <div className= {props.showTable?"uploadsTableWrapper uploadsTableWrapperShow":"uploadsTableWrapper"}>
             <p>Uploads</p>
             <div className="tableWrapper">
                 <table className="dataTable">
@@ -22,14 +22,7 @@ export const UploadsTable = (props) =>{
 
                     </thead>
                    <tbody>
-                    {/* <TableRow data = {props.data}/> */}
-                    {/* <TableRow />
-                    <TableRow />
-                    <TableRow />
-                    <TableRow />
-                    <TableRow />
-                    <TableRow />
-                    <TableRow /> */}
+                    
                     {props.data.map((rowData,index) => (
                         <TableRow key = {index} data={rowData} />
                     ))}

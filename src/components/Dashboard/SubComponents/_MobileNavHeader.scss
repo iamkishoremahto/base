@@ -1,6 +1,6 @@
 .mainMobileProfileNav {
     display: flex;
-
+    z-index: 555;
 
     align-items: center;
     justify-content: space-between;
@@ -24,6 +24,7 @@
             .handburger{
                 // height: 50px;
                 font-size: 1.4rem;
+               
             }
 
             .mobileLogo {

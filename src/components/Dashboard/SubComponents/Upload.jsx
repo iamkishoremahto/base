@@ -1,13 +1,41 @@
 
 import { MdOutlineFileUpload } from "react-icons/md";
 import React, { useState } from 'react';
-import { Dashboard  } from '../Dashboard';
+// import { Dashboard  } from '../Dashboard';
+import Spinner from 'react-bootstrap/Spinner';
 import * as XLSX from 'xlsx';
 
-export const Upload = ({setExcelData}) => {
-    // const [excelData, setExcelData] = useState([])
+export const Upload = ({setExcelData,setShowTable}) => {
+    const [file, setFile] = useState('')
+    const [isUploading, setUploading] = useState(false);
+   
     
 
+    const uploadingHandler = (e) =>{
+
+        // const file = e.target.files[0];
+        const reader = new FileReader();
+
+        reader.onprogress = () => {
+            setUploading(true);
+          };
+        
+          reader.onload = () => {
+            setUploading(false);
+          }
+    }
+    const uploadClickHandler = (e) =>{
+        
+        setShowTable(true);
+
+                    console.log(file)
+                   let inputBtn = document.getElementById('excelFile');
+                   let files = inputBtn.files;
+                if(files){
+                    handleExcelDataObject(files[0]);
+                }
+
+    }
     const handleExcelDataObject = (file) =>{
         const reader = new FileReader();
         reader.readAsBinaryString(file);
@@ -19,6 +47,7 @@ export const Upload = ({setExcelData}) => {
             const parseData = XLSX.utils.sheet_to_json(sheet);
             // console.log(parseData);
             setExcelData(parseData);
+       
         
         };
         
@@ -31,7 +60,10 @@ export const Upload = ({setExcelData}) => {
         setBrowseMessage('Remove')
         setUploadFileClass('fileUploaded')
         setBrowseHandler(false);
-        handleExcelDataObject(files[0]);
+        // handleExcelDataObject(files[0]);
+
+       
+        
         
     }
 
@@ -80,7 +112,8 @@ export const Upload = ({setExcelData}) => {
         fileInput.files = files;
         const e = new Event('change');
         fileInput.dispatchEvent(e);
-        handleExcelDataObject(files[0]);
+        setFile(files[0])
+        // handleExcelDataObject(files[0]);
         
        
         
@@ -93,6 +126,8 @@ export const Upload = ({setExcelData}) => {
         setUploadFileClass('');
         setBrowseHandler(true);
         setExcelData([]);
+        setShowTable(false);
+
         let inputBtn = document.getElementById('excelFile');
         inputBtn.value = ''
       }
@@ -105,14 +140,16 @@ export const Upload = ({setExcelData}) => {
                 onDragLeave={handleDragLeave}
                 onDrop={handleDrop}
                 >
-                    <input type="file" name="excelFile" id="excelFile" />
+                    <input onChange = {uploadingHandler} type="file" name="excelFile" id="excelFile" />
                     <img src={process.env.PUBLIC_URL + 'images/excel.svg'} alt="" className="img-fluid excelIcon" />
                     <p className={uploadFileClass}><span id="dropFile">{dropMessage}</span> <span onClick = {browseHandler?handleBrowseClick:handleRemoveClick}>{browseMessage}</span></p>
                 </div>
                 <div className="uploadBtnWrapper">
-                    <button className="uploadBtn">
-                        <MdOutlineFileUpload />
-                        Upload
+                    <button onClick = {uploadClickHandler} className="uploadBtn">
+                        {
+                           isUploading? <Spinner animation="border" variant="light" /> :<><MdOutlineFileUpload />Upload</>
+                        }
+                        
                     </button>
                 </div>
             </div>
